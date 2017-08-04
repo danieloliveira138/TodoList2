@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListarActivity extends AppCompatActivity {
 
     SQLiteDatabase bancoDados;
     private ListView listaTarefas;
-    private ArrayAdapter<String> stringArrayAdapter;
+    private TarefaAdapter tarefaAdapter;
     private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,8 @@ public class ListarActivity extends AppCompatActivity {
         bancoDados = openOrCreateDatabase("appTarefa", MODE_PRIVATE, null);
 
         try {
-            stringArrayAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1 , ListarBanco());
-            listaTarefas.setAdapter(stringArrayAdapter);
+            tarefaAdapter = new TarefaAdapter (getApplicationContext(), ListarBanco());
+            listaTarefas.setAdapter(tarefaAdapter);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,8 +33,8 @@ public class ListarActivity extends AppCompatActivity {
 
 
     }
-    public ArrayList<String> ListarBanco() {
-        ArrayList<String> lista = new ArrayList<>();
+    public List<Tarefa> ListarBanco() {
+        List<Tarefa> lista = new ArrayList<>();
         cursor = bancoDados.rawQuery("SELECT * FROM tabela ORDER BY id DESC", null);
         int indColunaId = cursor.getColumnIndex("id");
         int indColunaNome = cursor.getColumnIndex("nome");
@@ -42,11 +43,11 @@ public class ListarActivity extends AppCompatActivity {
         int cont = cursor.getCount();
         int i = 0;
             while ( i < cont) {
-                int tmpId = cursor.getInt(indColunaId);
-                String tmpNome = cursor.getString(indColunaNome);
-                String tmpTarefa = cursor.getString(indColunaTarefa);
-                String message = "Tarefa: " + tmpId + "\nTítulo: " + tmpNome + "\nResumo: " + tmpTarefa;                        ;
-                lista.add(message);
+                Tarefa tmpTarefa = new Tarefa();
+                tmpTarefa.setIndice(cursor.getInt(indColunaId));
+                tmpTarefa.setTitulo(cursor.getString(indColunaNome));
+                tmpTarefa.setResumo(cursor.getString(indColunaTarefa));
+                lista.add(tmpTarefa);
                 cursor.moveToNext();
                 i++;
             }

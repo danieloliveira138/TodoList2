@@ -5,40 +5,41 @@ package com.curso.todolist;
  */
 
 public class Tarefa {
-    private String id;
-    private String nome;
-    private String tarefa;
+    private int indice;
+    private String titulo;
+    private String resumo;
 
-    public Tarefa(String a, String b, String c){
-        this.id = a;
-        this.nome = b;
-        this.tarefa = c;
+    public Tarefa(int indice, String titulo, String resumo) {
+        this.indice = indice;
+        this.titulo = titulo;
+        this.resumo = resumo;
     }
+
     public Tarefa(){
 
-    };
-
-    public String getId() {
-        return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public int getIndice() {
+        return indice;
     }
 
-    public String getNome() {
-        return nome;
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public String getTarefa() {
-        return tarefa;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public void setTarefa(String tarefa) {
-        this.tarefa = tarefa;
+    public String getResumo() {
+        return resumo;
+    }
+
+    public void setResumo(String resumo) {
+        this.resumo = resumo;
     }
 }

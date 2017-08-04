@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="left">
-    <TextView
+    android:layout_height="wrap_content"
+    android:background="#bebebe"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background=""/>//
+        android:orientation="horizontal"
+        android:divider="#ffff"
+        android:weightSum="1">
 
+        <TextView
+            android:id="@+id/numero_id"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="#000"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#ffffff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/titulo_tarefa_id"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textSize="40sp"
+            android:textColor="#ffffff"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/resumo_id"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#ffffff"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="0dp" />
 </LinearLayout>
