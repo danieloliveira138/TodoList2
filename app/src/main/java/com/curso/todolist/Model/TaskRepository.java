@@ -1,16 +1,13 @@
-package com.curso.todolist.Controler;
+package com.curso.todolist.Model;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-import com.curso.todolist.Model.DataBasePersistence;
-
+import com.curso.todolist.Controler.Task;
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.curso.todolist.Model.DataBasePersistence.COLUMN_ID;
 import static com.curso.todolist.Model.DataBasePersistence.COLUMN_RESUME;
 import static com.curso.todolist.Model.DataBasePersistence.COLUMN_TITLE;
@@ -86,11 +83,8 @@ public class TaskRepository {
         Cursor cursor = database.rawQuery(sql, argument);
         cursor.moveToFirst();
         int indexId = cursor.getColumnIndex(COLUMN_ID);
-        Log.i("cursor " + COLUMN_ID, "" + indexId, null);
         int indexTitle = cursor.getColumnIndex(COLUMN_TITLE);
-        Log.i("cursor " + COLUMN_TITLE, "" + indexTitle, null);
         int indexResume = cursor.getColumnIndex(COLUMN_RESUME);
-        Log.i("cursor " + COLUMN_RESUME, ":: " + indexResume, null);
         List<Task> tasks = new ArrayList<Task>();
         int i = 0;
         while (cursor.moveToNext()) {

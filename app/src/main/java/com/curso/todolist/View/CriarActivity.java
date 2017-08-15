@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.curso.todolist.Controler.Task;
-import com.curso.todolist.Controler.TaskRepository;
+import com.curso.todolist.Model.TaskRepository;
 import com.curso.todolist.R;
 
 public class CriarActivity extends AppCompatActivity {
