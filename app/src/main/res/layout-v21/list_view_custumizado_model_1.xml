@@ -64,7 +64,7 @@
         android:layout_marginTop="8dp"
         android:elegantTextHeight="false"
         android:padding="5dp"
-        android:textColor="?android:attr/colorControlNormal"
+        android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
