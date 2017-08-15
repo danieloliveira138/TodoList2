@@ -40,6 +40,7 @@ public class ListarActivity extends ListActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 try {
                     Task tmptarefa = (Task) taskAdapter.getItem(i);
+
                     mTaskRepository.delete(tmptarefa);
                     taskAdapter = new TaskAdapter(getApplicationContext(), mTaskRepository.searchTask(null));
                     taskList.setAdapter(taskAdapter);
