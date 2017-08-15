@@ -3,10 +3,6 @@ package com.curso.todolist.Controler;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by root on 02/08/17.
- */
-
 public class Task implements Parcelable {
     public static final Parcelable.Creator<Task>
             CREATOR = new Parcelable.Creator<Task>() {
