@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">To do List</string>
+    <string name="criar">Criar nova tarefa</string>
+    <string name="lista">Lista de tarefas</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="titulo">Título</string>
+    <string name="resumo">Descreva o resumo da tarefa...</string>
+    <string name="lista_vazia">Lista vazia, Crie elementos para popular a lista</string>
 </resources>
