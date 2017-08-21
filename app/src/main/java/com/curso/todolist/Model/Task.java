@@ -1,5 +1,6 @@
-package com.curso.todolist.Controler;
+package com.curso.todolist.Model;
 
+import java.util.Calendar;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -15,22 +16,45 @@ public class Task implements Parcelable {
             return new Task[size];
         }
     };
-    private int id;
+    private final String date;
+    private long id;
     private int index;
+    private int done;
     private String title;
     private String resume;
 
     public Task(String title, String resume) {
         id = 0;
+        done = 0;
         this.title = title;
         this.resume = resume;
+        date = TaskDate();
     }
 
     public Task(int id, int index, String title, String resume) {
         this.id = id;
         this.index = index;
+        this.done = 0;
         this.title = title;
         this.resume = resume;
+        date = TaskDate();
+    }
+
+    public Task(int id, int index, String title, String resume, String date, int done) {
+        this.id = id;
+        this.index = index;
+        this.done = done;
+        this.title = title;
+        this.resume = resume;
+        this.date = date;
+    }
+
+    public Task() {
+        id = 0;
+        done = 0;
+        this.title = "Nova Tarefa";
+        this.resume = "";
+        date = TaskDate();
     }
 
     private Task(Parcel from) {
@@ -38,17 +62,15 @@ public class Task implements Parcelable {
         index = from.readInt();
         title = from.readString();
         resume = from.readString();
+        date = from.readString();
+        done = from.readInt();
     }
 
-    public Task() {
-
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -76,6 +98,29 @@ public class Task implements Parcelable {
         this.resume = resume;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public int getDone() {
+        return done;
+    }
+
+    public void setDone(int done) {
+        this.done = done;
+    }
+
+    //    @TargetApi(Build.VERSION_CODES.N)
+    private String TaskDate() {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+
+        return String.format("%d:%d %d/%d/%d", hour, minute, day, month, year);
+    }
     @Override
     public int describeContents() {
         return 0;
@@ -83,9 +128,11 @@ public class Task implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
+        parcel.writeLong(id);
         parcel.writeInt(index);
         parcel.writeString(title);
         parcel.writeString(resume);
+        parcel.writeString(date);
+        parcel.writeInt(done);
     }
 }

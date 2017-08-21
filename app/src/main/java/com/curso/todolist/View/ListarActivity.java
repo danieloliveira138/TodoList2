@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.curso.todolist.Model.TaskRepository;
+
+import com.curso.todolist.Adapter.TaskAdapter;
+import com.curso.todolist.Persistence.TaskRepository;
 import com.curso.todolist.R;
-import com.curso.todolist.Controler.Task;
+import com.curso.todolist.Model.Task;
 import static android.R.id.list;
 
 public class ListarActivity extends ListActivity {
@@ -16,7 +18,6 @@ public class ListarActivity extends ListActivity {
     TaskRepository mTaskRepository;
     private ListView taskList;
     private TaskAdapter taskAdapter;
-    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

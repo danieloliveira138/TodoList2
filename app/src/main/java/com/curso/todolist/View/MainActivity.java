@@ -10,9 +10,6 @@ import com.curso.todolist.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    static String DATA_BASE_NAME = "appTarefa";
-    private SQLiteDatabase database;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,17 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnCriarNota = (Button) findViewById(R.id.criar_nota_id);
         Button btnPesquisarNota = (Button) findViewById(R.id.ver_lista_id);
-
-        try{
-            database = openOrCreateDatabase(DATA_BASE_NAME, MODE_PRIVATE, null);
-            database.execSQL("CREATE TABLE IF NOT EXISTS tabela(" +
-                    "                           id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "                           nome VARCHAR," +
-                    "                           tarefa VARCHAR)");
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
 
         btnCriarNota.setOnClickListener(new View.OnClickListener() {
             @Override

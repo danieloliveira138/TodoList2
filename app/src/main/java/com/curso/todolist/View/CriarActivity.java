@@ -7,8 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.curso.todolist.Controler.Task;
-import com.curso.todolist.Model.TaskRepository;
+
+import com.curso.todolist.Model.Task;
+import com.curso.todolist.Persistence.TaskRepository;
 import com.curso.todolist.R;
 
 public class CriarActivity extends AppCompatActivity {
@@ -16,7 +17,6 @@ public class CriarActivity extends AppCompatActivity {
     TaskRepository mTaskRepository;
     private EditText mTitle;
     private EditText mResume;
-    private Task task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +29,6 @@ public class CriarActivity extends AppCompatActivity {
         mResume = (EditText) findViewById(R.id.editText_tarefa_id);
 
         mTaskRepository = new TaskRepository(getApplicationContext());
-//        Intent intent = getIntent();
-//        task = intent.getParcelableExtra("task");
-//
-//
-//        if (task != null){
-//            mTitle.setText(task.getTitle());
-//            mResume.setText(task.getResume());
-//        }
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
 
@@ -51,12 +43,13 @@ public class CriarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mResume.getText().toString().isEmpty() || mTitle.getText().toString().isEmpty())
-                    Toast.makeText(CriarActivity.this, "Atenção. Todos os campos procisam ser preenchidos", Toast.LENGTH_SHORT).show();
+                    ToastMessage("Atenção. Todos os campos procisam ser preenchidos");
                 else {
                     try {
                         Task TmpTask = new Task(mTitle.getText().toString(), mResume.getText().toString());
                         mTaskRepository.Save(TmpTask);
                         CleanEditText();
+                        ToastMessage("Tarefa gravada com sucesso");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -67,8 +60,11 @@ public class CriarActivity extends AppCompatActivity {
     }
 
     public void CleanEditText() {
-        Toast.makeText(CriarActivity.this, "Tarefa gravada com sucesso", Toast.LENGTH_SHORT).show();
         mTitle.setText("");
         mResume.setText("");
+    }
+
+    public void ToastMessage(String message) {
+        Toast.makeText(CriarActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }
