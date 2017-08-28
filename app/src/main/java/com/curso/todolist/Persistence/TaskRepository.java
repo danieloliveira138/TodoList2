@@ -6,11 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.curso.todolist.Model.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_DONE;
 import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_DATE;
+import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_DONE;
 import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_ID;
 import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_RESUME;
 import static com.curso.todolist.Persistence.DatabasePersistence.COLUMN_TITLE;
@@ -93,7 +94,6 @@ public class TaskRepository {
         int indexDate = cursor.getColumnIndex(COLUMN_DATE);
         int indexCheck = cursor.getColumnIndex(COLUMN_DONE);
         List<Task> tasks = new ArrayList<>();
-        cursor.moveToFirst();
         int i = 0;
         while (cursor.moveToNext()) {
             int id = cursor.getInt(indexId);

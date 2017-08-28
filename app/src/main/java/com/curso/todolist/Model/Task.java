@@ -1,21 +1,22 @@
 package com.curso.todolist.Model;
 
-import java.util.Calendar;
 import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Task implements Parcelable {
-    public static final Parcelable.Creator<Task>
-            CREATOR = new Parcelable.Creator<Task>() {
+import java.io.Serializable;
+import java.util.Calendar;
 
-        public Task createFromParcel(Parcel in) {
-            return new Task(in);
-        }
-
-        public Task[] newArray(int size) {
-            return new Task[size];
-        }
-    };
+public class Task implements /*Parcelable,*/ Serializable {
+    //    public static final Parcelable.Creator<Task>
+//            CREATOR = new Parcelable.Creator<Task>() {
+//
+//        public Task createFromParcel(Parcel in) {
+//            return new Task(in);
+//        }
+//
+//        public Task[] newArray(int size) {
+//            return new Task[size];
+//        }
+//    };
     private final String date;
     private long id;
     private int index;
@@ -119,20 +120,20 @@ public class Task implements Parcelable {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        return String.format("%d:%d %d/%d/%d", hour, minute, day, month, year);
+        return String.format("%d:%d\t\t%d/%d/%d", hour, minute, day, month, year);
     }
-    @Override
-    public int describeContents() {
-        return 0;
-    }
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(id);
-        parcel.writeInt(index);
-        parcel.writeString(title);
-        parcel.writeString(resume);
-        parcel.writeString(date);
-        parcel.writeInt(done);
-    }
+//    @Override
+//    public void writeToParcel(Parcel parcel, int i) {
+//        parcel.writeLong(id);
+//        parcel.writeInt(index);
+//        parcel.writeString(title);
+//        parcel.writeString(resume);
+//        parcel.writeString(date);
+//        parcel.writeInt(done);
+//    }
 }

@@ -1,8 +1,8 @@
 package com.curso.todolist.View;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +14,7 @@ import com.curso.todolist.R;
 
 public class CriarActivity extends AppCompatActivity {
 
-    TaskRepository mTaskRepository;
+    protected TaskRepository mTaskRepository;
     private EditText mTitle;
     private EditText mResume;
 
@@ -28,7 +28,7 @@ public class CriarActivity extends AppCompatActivity {
         mTitle = (EditText) findViewById(R.id.editText_titulo_id);
         mResume = (EditText) findViewById(R.id.editText_tarefa_id);
 
-        mTaskRepository = new TaskRepository(getApplicationContext());
+
 
         btnCancelar.setOnClickListener(new View.OnClickListener() {
 
@@ -42,6 +42,7 @@ public class CriarActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mTaskRepository = new TaskRepository(getApplicationContext());
                 if (mResume.getText().toString().isEmpty() || mTitle.getText().toString().isEmpty())
                     ToastMessage("Atenção. Todos os campos procisam ser preenchidos");
                 else {

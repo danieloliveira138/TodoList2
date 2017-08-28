@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.curso.todolist.R;
 import com.curso.todolist.Model.Task;
+import com.curso.todolist.R;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class TaskAdapter extends BaseAdapter {
     public View getView(int i, View convertView, ViewGroup viewGroup) {
         Task task = taskList.get(i);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.list_view_custumizado_model_1, null);
+        View view = inflater.inflate(R.layout.layout_costumize_adapter, null);
 
         TextView numero = view.findViewById(R.id.numero_id);
         if (task.getDone() == 0) {
@@ -53,14 +53,15 @@ public class TaskAdapter extends BaseAdapter {
         }
 
 
-
         TextView titulo = view.findViewById(R.id.titulo_tarefa_id);
-        titulo.setText(String.format("%d . %S", task.getId(), task.getTitle()));
+        titulo.setText(String.format("%d . %s\ncriado em: %s", task.getId(), task.getTitle(), task.getDate()));
 
         TextView resumo = view.findViewById(R.id.resumo_id);
-        resumo.setText(
-                String.format("\tCriado em: %s\n%s", task.getDate(), task.getResume())
-        );
+        resumo.setText(task.getResume());
+
+        TextView date = view.findViewById(R.id.date_task_id);
+        date.setText(task.getDate());
+
         return view;
     }
 }

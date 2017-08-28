@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/numero_id"
+        android:layout_width="62dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/task"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/resumo_id"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/titulo_tarefa_id"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titulo_tarefa_id"
+        android:layout_width="278dp"
+        android:layout_height="33dp"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:gravity="top|left"
+        android:padding="5dp"
+        android:text="ssssssssssssssssss"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="17dp" />
+
+    <TextView
+        android:id="@+id/date_task_id"
+        android:layout_width="282dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numero_id"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_tarefa_id" />
+
+    <TextView
+        android:id="@+id/resumo_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_task_id"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>
