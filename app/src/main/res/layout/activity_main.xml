@@ -4,35 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecundary"
     tools:context="com.curso.todolist.View.MainActivity">
 
     <Button
         android:id="@+id/criar_nota_id"
-        android:layout_width="314dp"
-        android:layout_height="57dp"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/criar"
         app:layout_constraintBottom_toTopOf="@+id/ver_lista_id"
+        app:layout_constraintHorizontal_bias="0.717"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/pswd_login"
+        app:layout_constraintVertical_bias="0.017"
+        tools:layout_editor_absoluteY="269dp" />
 
     <Button
         android:id="@+id/ver_lista_id"
         android:layout_width="314dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="52dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:text="@string/lista"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/pswd_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:labelFor="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="114dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/icone"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        tools:layout_editor_absoluteX="134dp" />
+
 </android.support.constraint.ConstraintLayout>
